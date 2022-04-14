@@ -7,6 +7,8 @@ import {
   LoginOutlined,
   LogoutOutlined,
   UserAddOutlined,
+  CarryOutOutlined,
+  TeamOutlined,
 } from "@ant-design/icons";
 import { Context } from "../context";
 import axios from "axios";
@@ -32,7 +34,7 @@ const TopNav = () => {
     window.localStorage.removeItem("user");
     const { data } = await axios.get("/api/logout");
     toast(data.message);
-    Router.push("/login");
+    router.push("/login");
   };
 
   return (
@@ -46,6 +48,28 @@ const TopNav = () => {
           <a>App</a>
         </Link>
       </Item>
+
+      {user && user.role && user.role.includes("Instructor") ? (
+        <Item
+          key="/instructor/course/create"
+          onClick={(e) => setCurrent(e.key)}
+          icon={<CarryOutOutlined />}
+        >
+          <Link href="/instructor/course/create">
+            <a>Create Course</a>
+          </Link>
+        </Item>
+      ) : (
+        <Item
+          key="/user/become-instructor"
+          onClick={(e) => setCurrent(e.key)}
+          icon={<TeamOutlined />}
+        >
+          <Link href="/user/become-instructor">
+            <a>Become Instructor</a>
+          </Link>
+        </Item>
+      )}
 
       {user === null && (
         <>

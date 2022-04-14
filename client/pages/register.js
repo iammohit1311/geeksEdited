@@ -34,6 +34,9 @@ const Register = () => {
       });
       //console.log("REGISTER RESPONSE", data);
       toast("Registration successful. Please Login");
+      setName("");
+      setEmail("");
+      setPassword("");
       setLoading(false);
     } catch (err) {
       toast(err.response.data);
