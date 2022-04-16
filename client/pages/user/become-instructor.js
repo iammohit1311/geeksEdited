@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../../context";
 import { Button } from "antd";
 import axios from "axios";
@@ -50,7 +51,14 @@ const becomeInstructor = () => {
                 bank account
               </p>
 
-              <Button
+              <a
+                href="http://localhost:3000/stripe/callback"
+                className="btn btn-primary"
+              >
+                Payout
+              </a>
+
+              {/* <Button
                 className="mb-3"
                 type="primary"
                 block
@@ -64,7 +72,7 @@ const becomeInstructor = () => {
                 }
               >
                 {loading ? "Processing..." : "Payout Setup"}
-              </Button>
+              </Button> */}
 
               <p className="lead">
                 You will be redirected to Stripe to complete onboarding process
