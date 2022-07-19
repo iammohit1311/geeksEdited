@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const InstructorNav = () => {
   const [current, setCurrent] = useState("");
@@ -22,6 +22,16 @@ const InstructorNav = () => {
           }`}
         >
           Course Create
+        </a>
+      </Link>
+
+      <Link href="/instructor/revenue">
+        <a
+          className={`nav-link ${
+            current === "/instructor/revenue" && "active"
+          }`}
+        >
+          Revenue
         </a>
       </Link>
     </div>
